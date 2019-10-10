@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 public class winPercentage {
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
-    DecimalFormat fmt = new DecimalFormat("0.##");
+    DecimalFormat fmt = new DecimalFormat("0.#");
     boolean running = true;
     boolean calculate = true;
     while (running){
