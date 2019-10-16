@@ -4,9 +4,8 @@ public class Multiples {
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     boolean running = true;
-    boolean run = true;
     while (running) {
-      int num = 1;
+      int num = -1;
       boolean restart = false;
       System.out.println("What is your max?");
       int max = scan.nextInt();
@@ -35,18 +34,15 @@ public class Multiples {
         for (int i = 1; i <= max; i++) {
           running = false;
           if (i % multiple == 0) {
-            run = true;
-            if(num < 5){
-              System.out.print(i + " ");
-              num++;
-              run = false;
-            }
-            if(num >= 5){
-              System.out.println(i + " ");
-              num = 1;
+            System.out.print(i + " ");
+            num++;
+            if(num == 5) {
+              System.out.println();
+              num = 0;
             }
           }
         }
+          System.out.println();
       }
     }
   }
