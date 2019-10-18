@@ -5,7 +5,7 @@ public class Multiples {
     Scanner scan = new Scanner(System.in);
     boolean running = true;
     while (running) {
-      int num = -1;
+      int num = 0;
       boolean restart = false;
       System.out.println("What is your max?");
       int max = scan.nextInt();

@@ -1,0 +1,5 @@
+get number you want multiples of
+get max
+see if  max is more than multiples, if not tell them then go back to start
+see if a number is negetive, if not tell htem then go back to start
+for loop seeing if each number increasing by one is divisble by multiple until number is more than max
