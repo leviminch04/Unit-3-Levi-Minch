@@ -5,9 +5,6 @@ public class RockPaperScissors
   public static void main(String[] args)
   {
     Scanner scan = new Scanner(System.in);
-    System.out.println("Rock paper scissors simulater, which do you choose? ");
-    String choice = scan.next();
-    int numRand = (int) ((Math.random() * 3) + 1);
     String rand = "";
     String rock = "rock";
     String paper = "paper";
@@ -15,8 +12,12 @@ public class RockPaperScissors
     String no = "no";
     String yN;
     boolean run = true;
+    int wins = 0;
     while(true)
     {
+      System.out.println("Rock paper scissors simulater, which do you choose? ");
+      String choice = scan.next();
+      int numRand = (int) ((Math.random() * 3) + 1);
       if (numRand == 1)
       {
         rand = "rock";
@@ -29,7 +30,7 @@ public class RockPaperScissors
       {
         rand = "scissors";
       }
-      if(choice.equals(rock))
+      if(choice.equals("rock"))
       {
         if(rand.equals("rock"))
         {
@@ -38,6 +39,8 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
+          if(yN.equals("n"))
+            run = false;
         }
         if(rand.equals("scissors"))
         {
@@ -46,6 +49,9 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
+          wins++;
+          if(yN.equals("n"))
+            run = false;
         }
         if(rand.equals("paper"))
         {
@@ -54,8 +60,11 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
+          if(yN.equals("n"))
+            run = false;
         }
-      if(choice.equals(scissors))
+      }
+      else if(choice.equals("scissors"))
       {
         if(rand.equals("rock"))
         {
@@ -64,6 +73,8 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
+          if(yN.equals("n"))
+            run = false;
         }
         if(rand.equals("scissors"))
         {
@@ -72,6 +83,8 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
+          if(yN.equals("n"))
+            run = false;
         }
         if(rand.equals("paper"))
         {
@@ -80,9 +93,12 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
+          wins++;
+          if(yN.equals("n"))
+            run = false;
         }
       }
-      if(choice.equals(paper))
+      else if(choice.equals("paper"))
       {
         if(rand.equals("rock"))
         {
@@ -91,6 +107,9 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
+          wins++;
+          if(yN.equals("n"))
+            run = false;
         }
         if(rand.equals("scissors"))
         {
@@ -99,6 +118,8 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
+          if(yN.equals("n"))
+            run = false;
         }
         if(rand.equals("paper"))
         {
@@ -107,9 +128,17 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
+          if(yN.equals("n"))
+            run = false;
         }
       }
-    }
+      if(run)
+        continue;
+      if(!run)
+      {
+        System.out.println("Total wins: " + wins);
+      }
+
     }
   }
 }
