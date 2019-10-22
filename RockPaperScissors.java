@@ -1,13 +1,13 @@
 // ask mr. george if tied games count towards the total games for win percentage
-
-
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class RockPaperScissors
 {
   public static void main(String[] args)
   {
     Scanner scan = new Scanner(System.in);
+    DecimalFormat fmt = new DecimalFormat("0.00");
     String rand = "";
     String rock = "rock";
     String paper = "paper";
@@ -19,7 +19,6 @@ public class RockPaperScissors
     double losses = 0;
     double total = 0;
     double winPercentage;
-    double roundWinPercentage;
     while(run)
     {
       System.out.println("Rock paper scissors simulater, which do you choose? ");
@@ -141,11 +140,10 @@ public class RockPaperScissors
         continue;
       }
       winPercentage = (wins / total) * 100;
-      roundWinPercentage = Math.round(winPercentage * 100) / 100;
       if(!run)
       {
-        System.out.println("Total wins: " + wins + " Toal losses: " + losses + " Total " + total);
-        System.out.println("Win Percntage: " + winPercentage);
+        System.out.println("Total wins: " + Math.round(wins) + " Toal losses: " + Math.round(losses) + " Total games: " + Math.round(total));
+        System.out.println("Win Percntage: " + fmt.format(winPercentage));
       }
 
     }
