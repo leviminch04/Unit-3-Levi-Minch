@@ -1,3 +1,6 @@
+// ask mr. george if tied games count towards the total games for win percentage
+
+
 import java.util.Scanner;
 
 public class RockPaperScissors
@@ -12,8 +15,12 @@ public class RockPaperScissors
     String no = "no";
     String yN;
     boolean run = true;
-    int wins = 0;
-    while(true)
+    double wins = 0;
+    double losses = 0;
+    double total = 0;
+    double winPercentage;
+    double roundWinPercentage;
+    while(run)
     {
       System.out.println("Rock paper scissors simulater, which do you choose? ");
       String choice = scan.next();
@@ -35,12 +42,8 @@ public class RockPaperScissors
         if(rand.equals("rock"))
         {
           System.out.println("Both rock");
-          System.out.println("Would you like to play again (y/n)");
-          yN = scan.next();
-          if(yN.equals("y"))
-            run = true;
-          if(yN.equals("n"))
-            run = false;
+          total++;
+          continue;
         }
         if(rand.equals("scissors"))
         {
@@ -49,7 +52,8 @@ public class RockPaperScissors
           yN = scan.next();
           if(yN.equals("y"))
             run = true;
-          wins++;
+          losses++;
+          total++;
           if(yN.equals("n"))
             run = false;
         }
@@ -62,6 +66,8 @@ public class RockPaperScissors
             run = true;
           if(yN.equals("n"))
             run = false;
+          wins++;
+          total++;
         }
       }
       else if(choice.equals("scissors"))
@@ -75,16 +81,14 @@ public class RockPaperScissors
             run = true;
           if(yN.equals("n"))
             run = false;
+          losses++;
+          total++;
         }
         if(rand.equals("scissors"))
         {
           System.out.println("you tie");
-          System.out.println("Would you like to play again (y/n)");
-          yN = scan.next();
-          if(yN.equals("y"))
-            run = true;
-          if(yN.equals("n"))
-            run = false;
+          //continue
+          total++;
         }
         if(rand.equals("paper"))
         {
@@ -94,6 +98,7 @@ public class RockPaperScissors
           if(yN.equals("y"))
             run = true;
           wins++;
+          total++;
           if(yN.equals("n"))
             run = false;
         }
@@ -108,6 +113,7 @@ public class RockPaperScissors
           if(yN.equals("y"))
             run = true;
           wins++;
+          total++;
           if(yN.equals("n"))
             run = false;
         }
@@ -120,23 +126,26 @@ public class RockPaperScissors
             run = true;
           if(yN.equals("n"))
             run = false;
+          total++;
+          losses++;
         }
         if(rand.equals("paper"))
         {
           System.out.println("You tie");
-          System.out.println("Would you like to play again (y/n)");
-          yN = scan.next();
-          if(yN.equals("y"))
-            run = true;
-          if(yN.equals("n"))
-            run = false;
+          total++;
+          continue;
         }
       }
       if(run)
+      {
         continue;
+      }
+      winPercentage = (wins / total) * 100;
+      roundWinPercentage = Math.round(winPercentage * 100) / 100;
       if(!run)
       {
-        System.out.println("Total wins: " + wins);
+        System.out.println("Total wins: " + wins + " Toal losses: " + losses + " Total " + total);
+        System.out.println("Win Percntage: " + winPercentage);
       }
 
     }
